@@ -1,19 +1,20 @@
 /* ========== THEME (from PDF) ========== */
 :root {
-  --violet-900: #4b3d84; /* deep sidebar purple */
+  --violet-900: #4b3d84;
   --violet-800: #5b4b8a;
-  --lav-50: #f3eafe; /* lavender panels */
+  --lav-50: #f3eafe;
   --lav-100: #eadffd;
   --lav-200: #e4d7fb;
   --lav-300: #dcccf8;
   --ink: #2b2d42;
   --muted: #6b6f86;
-  --peach: #ff8a65; /* small accents */
+  --peach: #ff8a65;
   --orange: #ff6b35;
   --white: #fff;
   --green-700: #2e7d32;
   --blue-700: #3f51b5;
   --pink-50: #fde7f1;
+  --chrome-h: 132px; /* sticky header + pager */
 }
 
 /* ========== RESET ========== */
@@ -25,6 +26,8 @@
 html,
 body {
   height: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 body {
   font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial,
@@ -39,6 +42,7 @@ body {
   margin: 0 auto;
   min-height: 100vh;
   position: relative;
+  overflow-x: clip;
 }
 .chapter-header {
   position: sticky;
@@ -63,7 +67,6 @@ body {
   flex-direction: column;
 }
 .ch-title {
-  /* font-size: 20px; */
   font-size: 20px;
   font-weight: 800;
   line-height: 1;
@@ -72,14 +75,6 @@ body {
   font-size: 13px;
   opacity: 0.9;
 }
-/* .ch-progress {
-  margin-left: auto;
-  width: 220px;
-  height: 6px;
-  background: rgba(255, 255, 255, 0.25);
-  border-radius: 99px;
-  overflow: hidden;
-} */
 .ch-progress span {
   display: block;
   height: 100%;
@@ -103,7 +98,6 @@ body {
   color: var(--muted);
 }
 
-/* Buttons */
 .btn {
   border: 0;
   cursor: pointer;
@@ -136,21 +130,23 @@ body {
   transform: none;
 }
 
-/* Full-viewport 9:16 frames */
+/* ---------- 9:16 FULL-VIEWPORT (base) ---------- */
 .full-viewport {
-  min-height: calc(100vh - 132px);
+  /* center section across true viewport width; no horizontal scroll on mobile */
+  width: 100svw;
+  margin-inline: calc(50% - 50svw);
+  min-height: calc(100dvh - var(--chrome-h));
   display: grid;
   place-items: center;
-  background: #000;
+  background: var(--lav-50); /* themed gutters on wide screens */
 }
 .frame-916 {
-  width: min(560px, 100%);
-  width: 100%;
-  aspect-ratio: 9/16;
+  aspect-ratio: 9/16; /* lock AR always */
+  width: min(560px, 100%); /* base width (overridden below on desktop/mobile) */
   /* border-radius: 18px; */
   overflow: hidden;
-  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
   position: relative;
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
 }
 .media {
   width: 100%;
@@ -166,36 +162,32 @@ body {
   padding: 24px;
 }
 .title-chip {
-  /* background: rgba(231, 226, 226, 0.45); */
   color: #fff;
   padding: 10px 14px;
-  margin: 10px 14px 10px 14px;
+  margin: 10px 14px;
   border-radius: 14px;
   backdrop-filter: blur(4px);
 }
-
 .chapter-number {
-  font-size: 4vw;
+  font-size: clamp(20px, 4vw, 32px);
   margin-left: 10px;
 }
-
 .title-chip .xl {
-  /* font-size: 48px; */
-  font-size: 12vw;
+  font-size: clamp(28px, 12vw, 72px);
   font-weight: 900;
 }
 
-/* Content pages with left rail like PDF */
+/* ---------- Content pages with left rail ---------- */
 .with-sidebar {
   display: grid;
   grid-template-columns: 120px 1fr;
   gap: 20px;
-  min-height: calc(100vh - 132px);
+  min-height: calc(100vh - var(--chrome-h));
   background: var(--lav-50);
 }
 .side-rail {
   position: sticky;
-  top: 132px;
+  top: var(--chrome-h);
   height: fit-content;
   background: var(--violet-900);
   color: #fff;
@@ -219,7 +211,6 @@ body {
 .rail-icon {
   font-size: 20px;
 }
-
 .page-body {
   padding: 20px;
 }
@@ -231,7 +222,6 @@ body {
   padding: 20px;
   margin: 10px;
   box-shadow: 0 10px 26px rgba(0, 0, 0, 0.05);
-  /* display: flex; */
 }
 .soft {
   background: var(--lav-100);
@@ -258,7 +248,6 @@ body {
   font-size: 18px;
   line-height: 1.7;
 }
-
 .title-row {
   display: flex;
   align-items: center;
@@ -280,21 +269,11 @@ body {
 }
 
 /* Sneak Peek */
-/* .banner.sneek {
-  display: flex;
-  gap: 16px;
-  background: var(--lav-100);
-  border-radius: 18px;
-  padding: 16px 18px;
-  margin-bottom: 16px;
-} */
-
 .boysneek-img {
   max-width: 120px;
   height: auto;
   display: block;
 }
-
 .banner.sneek {
   display: flex;
   align-items: center;
@@ -307,7 +286,6 @@ body {
 .banner-text {
   flex: 1;
 }
-
 .sneak-illustration {
   font-size: 44px;
 }
@@ -323,7 +301,7 @@ body {
   margin: 6px 0;
 }
 
-/* Hear me out cluster */
+/* Hear me out */
 .hmo-wrap {
   display: grid;
   gap: 16px;
@@ -349,19 +327,17 @@ body {
   gap: 16px;
   align-items: end;
 }
-.mom-kid {
+.mom-kid,
+.kid-video {
   width: 100%;
   border-radius: 16px;
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
 }
 .kid-video {
-  width: 100%;
-  border-radius: 16px;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
   background: transparent;
 }
 
-/* Twins block */
+/* Twins */
 .twins {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -390,54 +366,31 @@ body {
 .action {
   margin-top: 12px;
 }
-/* .action-title {
-  font-weight: 900;
-  color: var(--blue-700);
-  margin-bottom: 8px;
-} */
-
 .action-layout {
   display: flex;
   align-items: flex-start;
   gap: 20px;
 }
-
-/* .action-boy-img {
-  max-width: 120px;
-  height: auto;
-  display: block;
-} */
-
 .action-layout .action-boy-img {
-  max-width: 160px; /* slightly bigger than Sneak Peek */
-  flex-shrink: 0; /* don’t shrink the boy */
+  max-width: 160px;
+  flex-shrink: 0;
   filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.25));
 }
-
 .action-content {
-  flex: 1; /* text fills remaining space */
+  flex: 1;
 }
-
 .action-head {
   display: flex;
   align-items: center;
   gap: 12px;
   margin-bottom: 12px;
 }
-
-/* .action-title {
-  font-weight: 900;
-  font-size: 20px;
-  color: var(--violet-900);
-} */
-
 .action-title {
   font-size: 24px;
   font-weight: 900;
   color: var(--violet-900);
   margin-bottom: 12px;
 }
-
 .action-steps {
   padding-left: 18px;
 }
@@ -555,7 +508,7 @@ body {
   font-weight: 800;
 }
 
-/* Floating audio button */
+/* FAB */
 .audio-fab {
   position: fixed;
   right: 18px;
@@ -572,7 +525,7 @@ body {
   z-index: 50;
 }
 
-/* Visibility animation */
+/* Anim */
 .fade-in {
   animation: fadeInUp 0.6s ease forwards;
 }
@@ -587,7 +540,7 @@ body {
   }
 }
 
-/* Responsive */
+/* ---------- RESPONSIVE ---------- */
 @media (max-width: 900px) {
   .with-sidebar {
     grid-template-columns: 96px 1fr;
@@ -602,6 +555,8 @@ body {
     top: auto;
     flex-direction: row;
     justify-content: space-between;
+    margin: 20px 15px 0px 15px;
+    border-radius: 10px;
   }
   .rail-text {
     writing-mode: horizontal-tb;
@@ -616,129 +571,98 @@ body {
   .tester-grid {
     grid-template-columns: 1fr;
   }
-
   .action-layout {
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
-
-  .action-layout .boy-img {
+  .action-layout .action-boy-img {
     max-width: 120px;
     margin-bottom: 12px;
   }
-
   .action-content {
-    text-align: left; /* keeps paragraphs left-aligned */
+    text-align: left;
   }
 }
 
-/* --- Kill horizontal overflow globally --- */
-html,
-body {
-  max-width: 100%;
-  overflow-x: hidden;
-}
-.ebook-shell {
-  overflow-x: clip;
+@media (max-width: 490px) {
+  /* --- Fix: Chemical Effects grid responsive --- */
+
+  /* let the grid auto-wrap from 3 → 2 → 1 columns smoothly */
+  .apps-grid3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 14px;
+    margin-top: 10px; /* keeps your original spacing */
+  }
+
+  /* prevent text from forcing overflow */
+  .apps-grid3 > * {
+    min-width: 0;
+  }
+
+  /* tidy card styling so each item looks like a real card */
+  .app {
+    display: grid;
+    gap: 6px;
+    place-items: center;
+    text-align: center;
+    background: #fff;
+    border-radius: 14px;
+    padding: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  }
+
+  /* icon + text scale nicely on small screens */
+  .app .emoji {
+    font-size: clamp(28px, 6vw, 36px);
+  }
+  .app h4 {
+    font-size: clamp(14px, 3.6vw, 16px);
+    margin-bottom: 2px;
+  }
+  .app p {
+    font-size: clamp(12px, 3.2vw, 14px);
+    line-height: 1.4;
+  }
+
+  /* if you want hard breakpoints instead of auto-fit, uncomment this:
+@media (max-width: 900px){ .apps-grid3{ grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px){ .apps-grid3{ grid-template-columns: 1fr; } }
+*/
 }
 
-/* --- Full-bleed pages: robust mobile centering (no transform) --- */
-:root {
-  --chrome-h: 132px;
-} /* header + pager height */
+/* =========================================================
+   9:16 SIZING LOGIC (no mobile overflow, wider hero on desktop)
+   ========================================================= */
 
-.page.full-viewport {
-  /* center across the true small viewport width */
-  width: 100svw;
-  margin-inline: calc(50% - 50svw);
-  background: #000;
-  min-height: calc(100dvh - var(--chrome-h));
-  display: grid;
-  place-items: center;
+/* MOBILE/TALL (<= 9:16): clamp by width → no side bars */
+@media (max-aspect-ratio: 9/16) {
+  .frame-916 {
+    width: 100svw;
+  } /* height follows from aspect-ratio */
 }
 
-/* Fallback for older browsers without svw/dvh */
+/* WIDE VIEWPORTS (> 9:16): make hero wider (still 9:16) */
+@media (min-aspect-ratio: 9/16) {
+  /* default earlier behavior was height-clamped; that felt too skinny.
+     Instead, size by WIDTH with aspect-ratio so it grows nicely on desktop. */
+  .frame-916 {
+    width: clamp(560px, 46vw, 820px); /* adjust this clamp to taste */
+    height: auto; /* aspect-ratio sets height */
+  }
+}
+
+/* Fallback if svw unsupported */
 @supports not (width: 100svw) {
-  .page.full-viewport {
+  .full-viewport {
     width: 100vw;
     margin-inline: calc(50% - 50vw);
     min-height: calc(100vh - var(--chrome-h));
   }
-}
-
-/* 9:16 frame sizing without side bars */
-.page.full-viewport .frame-916 {
-  /* border-radius: 18px; */
-  overflow: hidden;
-  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
-  max-width: none;
-}
-.page.full-viewport .frame-916 .media {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* If screen is wider than 9:16, clamp by height */
-@media (min-aspect-ratio: 9/16) {
-  .page.full-viewport .frame-916 {
-    height: calc(100dvh - var(--chrome-h));
-    width: calc((100dvh - var(--chrome-h)) * 9 / 16);
-  }
-}
-
-/* If screen is taller/narrower, clamp by width */
-@media (max-aspect-ratio: 9/16) {
-  .page.full-viewport .frame-916 {
-    width: 100svw;
-    height: calc(100svw * 16 / 9);
-  }
-  @supports not (width: 100svw) {
-    .page.full-viewport .frame-916 {
+  @media (max-aspect-ratio: 9/16) {
+    .frame-916 {
       width: 100vw;
-      height: calc(100vw * 16 / 9);
     }
   }
-}
-
-/* FULL-BLEED (crops a little, no bars) */
-:root {
-  --chrome-h: 132px;
-} /* header + pager height */
-
-.page.full-viewport {
-  width: 100svw;
-  margin-inline: calc(50% - 50svw);
-  background: transparent;
-  min-height: calc(100dvh - var(--chrome-h));
-  display: grid;
-  place-items: center;
-}
-
-/* force the frame to fill the available box */
-.page.full-viewport .frame-916 {
-  width: 100svw;
-  height: calc(100dvh - var(--chrome-h));
-  /* border-radius: 18px; */
-  overflow: hidden;
-  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
-  max-width: none;
-}
-
-/* make media fully cover the frame */
-.page.full-viewport .frame-916 .media {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* crops a bit to avoid any bars */
-}
-
-/* guard against stray horizontal scroll */
-html,
-body {
-  max-width: 100%;
-  overflow-x: hidden;
-}
-.ebook-shell {
-  overflow-x: clip;
 }
