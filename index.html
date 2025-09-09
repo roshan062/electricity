@@ -15,15 +15,17 @@
           <h1 class="ch-title">Electricity</h1>
           <p class="ch-sub">Magnetic and Heating Effects</p>
         </div>
-        <div class="ch-progress"><span id="progressFill"></span></div>
+        <div class="ch-progress">
+            <span id="progressFill"></span>
+        </div>
       </header>
 
       <!-- Pager -->
-      <nav class="pager">
+      <!-- <nav class="pager">
         <button id="prevBtn" class="btn pill" disabled>← Previous</button>
         <span id="pageInfo" class="page-info">Page 1 of 9</span>
         <button id="nextBtn" class="btn pill">Next →</button>
-      </nav>
+      </nav> -->
 
       <!-- SECTION 1 — Full 9:16 cover image -->
       <section id="section1" class="page full-viewport visible">
@@ -35,8 +37,8 @@
           />
           <figcaption class="overlay-title">
             <div class="title-chip">
-              <div>Chapter 4</div>
-              <div class="xl">Electricity</div>
+              <div class="chapter-number">Chapter 4</div>
+              <div class="xl chapter-page-heading">Electricity</div>
             </div>
           </figcaption>
         </figure>
@@ -45,7 +47,7 @@
       <!-- SECTION 2 — Full 9:16 video -->
       <section id="section2" class="page full-viewport">
         <figure class="frame-916">
-          <video class="media" poster="assets/intro-poster-9x16.jpg" controls>
+          <video class="media" poster="assets/intro-poster-9x16.jpg" autoplay controls>
             <source src="assets/second_page_vid.mp4" type="video/mp4" />
             <source src="assets/intro-9x16.webm" type="video/webm" />
           </video>
@@ -72,8 +74,9 @@
         </aside>
 
         <div class="page-body">
-          <div class="banner sneek">
-            <div class="sneak-illustration">👦</div>
+          <!-- <div class="banner sneek">
+            <div class="sneak-illustration">👦
+            </div>
             <div class="banner-text">
               <h3 class="banner-title">Sneak&nbsp;Peek</h3>
               <ul class="bullet">
@@ -84,7 +87,23 @@
                 <li>Electrolysis and electroplating</li>
               </ul>
             </div>
-          </div>
+          </div> -->
+          <div class="banner sneek">
+  <div class="sneak-illustration">
+    <img src="assets/Boy_Poses/sneek.png" alt="Sneak Peek Boy" class="boysneek-img" />
+  </div>
+  <div class="banner-text">
+    <h3 class="banner-title">Sneak&nbsp;Peek</h3>
+    <ul class="bullet">
+      <li>Understand electric current and its flow</li>
+      <li>Discover which liquids conduct electricity</li>
+      <li>How to test conductivity of liquids</li>
+      <li>Explore heating & chemical effects of current</li>
+      <li>Learn electrolysis and electroplating</li>
+    </ul>
+  </div>
+</div>
+
 
           <div class="hmo-wrap">
             <button class="chip-audio" onclick="playAudio('intro-narration')">
@@ -92,21 +111,6 @@
               <span>Hear me out!</span>
             </button>
 
-            <div class="hmo-media">
-              <img
-                class="mom-kid"
-                src="assets/mother-kid.png"
-                alt="Mother and kid"
-              />
-              <!-- Transparent kid video (dummy); replace with your alpha WEBM -->
-              <video class="kid-video" autoplay muted loop playsinline>
-                <source src="assets/kid-nobg.webm" type="video/webm" />
-              </video>
-            </div>
-
-            <audio id="intro-narration" preload="metadata">
-              <source src="assets/intro-narration.mp3" type="audio/mpeg" />
-            </audio>
 
             <div class="card soft">
               <p class="lead">
@@ -119,6 +123,25 @@
                 electric current.”
               </p>
             </div>
+
+            <div class="hmo-media">
+              <img
+                class="mom-kid"
+                src="assets/mother-kid.png"
+                src="assets/mo.png"
+                alt="Mother and kid"
+              />
+              <!-- Transparent kid video (dummy); replace with your alpha WEBM -->
+              <video class="kid-video" autoplay muted loop playsinline>
+                <source src="assets/Boy.mp4" type="video/webm" />
+              </video>
+            </div>
+
+            <audio id="intro-narration" preload="metadata">
+              <source src="assets/intro-narration.mp3" type="audio/mpeg" />
+            </audio>
+
+            
           </div>
         </div>
       </section>
@@ -149,13 +172,12 @@
               <h4 class="twin-title">Conductors</h4>
               <p>Allow current to travel through them.</p>
               <div class="thumb-row">
-                <img src="assets/metals.png" alt="Metals" />
-                <img src="assets/graphite.png" alt="Graphite" />
-                <img src="assets/salty-water.png" alt="Salt water" />
+                <img src="assets/MnI/metal.png" alt="Metals" />
+                <img src="assets/MnI/wire.png" alt="Copper" />
+                <img src="assets/MnI/saltwater.png" alt="Salt water" />
               </div>
               <p class="small muted">
-                Examples: gold, silver, iron, copper; graphite; salt/acid/alkali
-                water.
+                Examples: Gold, Silver, Iron, Copper; Graphite, salt Water.
               </p>
             </div>
 
@@ -163,17 +185,17 @@
               <h4 class="twin-title">Insulators</h4>
               <p>Do not allow current to pass (bad conductors).</p>
               <div class="thumb-row">
-                <img src="assets/rubber.png" alt="Rubber" />
-                <img src="assets/wood.png" alt="Wood" />
-                <img src="assets/glass.png" alt="Glass" />
+                <img src="assets/MnI/rubber.png" alt="Rubber" />
+                <img src="assets/MnI/wood.png" alt="Wood" />
+                <img src="assets/MnI/glass.png" alt="Glass" />
               </div>
               <p class="small muted">
-                Also: pure/distilled water is a poor conductor.
+               Examples: Rubber, Wood, Glass.
               </p>
             </div>
           </div>
 
-          <div class="action card soft-blue">
+          <!-- <div class="action card soft-blue">
             <div class="action-title">Action Section</div>
             <ol class="action-steps">
               <li>Pour 70 ml pure water into a 120 ml beaker; add 7 g salt.</li>
@@ -183,7 +205,36 @@
               </li>
             </ol>
           </div>
-        </div>
+        </div> -->
+
+        <!-- <div class="action card soft-blue">
+  <div class="action-head">
+    <img src="assets/Boy_Poses/action-boy.png" alt="Boy Experimenting" class="action-boy-img" />
+    <h3 class="action-title">Action Section</h3>
+  </div>
+
+  <p><strong>Aim:</strong> To determine water containing any salt is a good conductor of electricity.</p>
+  <p><strong>Materials required:</strong> Battery, beaker, dry cell, copper wires, distilled water, common salt, sulphuric acid (dil.), caustic soda.</p>
+  <p><strong>Procedure:</strong> Pour 70 ml pure water into a 120 ml beaker and add 7 g of common salt. Stir. Connect wire C to cell’s negative terminal. Check if bulb glows. Add dilute acid/caustic soda and repeat.</p>
+  <p><strong>What do you observe?</strong></p>
+</div> -->
+
+<div class="action card soft-blue">
+  <div class="action-layout">
+    <img src="assets/Boy_Poses/action-boy.png" alt="Boy Experimenting" class="action-boy-img" />
+
+    <div class="action-content">
+      <h3 class="action-title">Action Section</h3>
+
+      <p><strong>Aim:</strong> To determine water containing any salt is a good conductor of electricity.</p>
+      <p><strong>Materials required:</strong> Battery, beaker, dry cell, copper wires, distilled water, common salt, sulphuric acid (dil.), caustic soda.</p>
+      <p><strong>Procedure:</strong> Pour 70 ml pure water into a 120 ml beaker and add 7 g of common salt. Stir. Connect wire C to cell’s negative terminal. Check if bulb glows. Add dilute acid/caustic soda and repeat.</p>
+      <p><strong>What do you observe?</strong></p>
+    </div>
+  </div>
+</div>
+
+
       </section>
 
       <!-- SECTION 6 — Liquids conduct? Tester diagram + fact flash -->
@@ -208,11 +259,14 @@
           <div class="tester card">
             <h3 class="tester-title">How to Test Conductivity</h3>
             <div class="tester-grid">
-              <img
+              <!-- <img
                 src="assets/tester-diagram.png"
                 alt="Tester diagram"
                 class="tester-img"
-              />
+              /> -->
+              <video class="kid-video" autoplay muted loop playsinline>
+                <source src="assets/Circuit.mp4" type="video/webm" />
+              </video>
               <div class="tester-notes">
                 <ul class="bullet">
                   <li>Cell/Battery + Bulb/LED</li>
@@ -242,7 +296,7 @@
                 energy-efficient lighting.
               </p>
               <img
-                src="assets/led-gif.gif"
+                src="assets/gifs/led.gif"
                 alt="LED GIF"
                 class="rounded media-sm"
               />
@@ -254,7 +308,7 @@
                 electricity.
               </p>
               <img
-                src="assets/neon-tester.png"
+                src="assets/Tester.png"
                 alt="Neon tester section"
                 class="rounded media-sm"
               />
@@ -263,7 +317,7 @@
               <h4>Magnetic Compass Detector</h4>
               <p>Compass deflects near a current-carrying conductor.</p>
               <img
-                src="assets/compass.gif"
+                src="assets/gifs/compassb.gif"
                 alt="Compass deflection GIF"
                 class="rounded media-sm"
               />
@@ -291,8 +345,19 @@
 
           <div class="card">
             <p>
-              Current through an electrolyte can drive chemical changes (e.g.,
-              electrolysis of acidified water → H<sub>2</sub> + O<sub>2</sub>).
+              <!-- Current through an electrolyte can drive chemical changes (e.g.,
+              electrolysis of acidified water → H<sub>2</sub> + O<sub>2</sub>). -->
+              The passage of an electric current through a conducting solution or an electrolyte,
+               chemical reactions get started between the components of electrolyte that induces chemical 
+               changes which is known as the chemical effects of electric current.
+            </p>
+          </div>
+          <div class="card">
+            <p>
+              <p>
+              For example, a chemical reaction occurs when an electric current is transmitted through 
+              acidified water using carbon electrodes, resulting in hydrogen and oxygen gas.
+            </p>
             </p>
           </div>
 
@@ -405,7 +470,7 @@
       </section>
 
       <!-- Floating audio toggle -->
-      <button id="audioControl" class="audio-fab" onclick="toggleAudio()">
+      <!-- <button id="audioControl" class="audio-fab" onclick="toggleAudio()"> -->
         🎵
       </button>
     </div>
