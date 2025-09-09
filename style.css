@@ -231,6 +231,8 @@ body {
 }
 .soft-pink {
   background: #fde8f0;
+  margin: 20px 0 20px 0;
+  padding: 12px;
 }
 .pastel-orange {
   background: #fff3e5;
@@ -259,13 +261,14 @@ body {
   font-weight: 800;
   padding: 10px 14px;
   border-radius: 12px;
+  margin: 0 0 20px 0;
 }
 .rule {
   height: 3px;
   flex: 1;
   background: var(--lav-300);
   border-radius: 4px;
-  margin-top: 2px;
+  margin: 2px 0 20px 0;
 }
 
 /* Sneak Peek */
@@ -295,7 +298,7 @@ body {
   margin-bottom: 8px;
 }
 .bullet {
-  padding-left: 18px;
+  padding-left: 8vw;
 }
 .bullet li {
   margin: 6px 0;
@@ -414,6 +417,12 @@ body {
   padding: 12px;
   margin: 12px 0;
 }
+
+.fact-flash img {
+  height: 100px;
+  width: 100px;
+}
+
 .ff-badge {
   font-weight: 900;
   color: var(--violet-900);
@@ -430,6 +439,11 @@ body {
   gap: 14px;
   align-items: center;
 }
+
+.tester-title {
+  margin: 0px 0 20px 5px;
+}
+
 .tester-img {
   width: 100%;
   border-radius: 14px;
@@ -450,6 +464,11 @@ body {
 }
 .rounded {
   border-radius: 12px;
+}
+
+.giff {
+  margin-left: 13%;
+  margin-top: 20%;
 }
 
 /* Chemical effects */
@@ -586,7 +605,11 @@ body {
 }
 
 @media (max-width: 490px) {
-  /* --- Fix: Chemical Effects grid responsive --- */
+  /* --- Giffs of  Heating Effects of current responsive --- */
+  .giff {
+    margin-left: 33%;
+    margin-top: 10%;
+  }
 
   /* let the grid auto-wrap from 3 → 2 → 1 columns smoothly */
   .apps-grid3 {
@@ -664,5 +687,75 @@ body {
     .frame-916 {
       width: 100vw;
     }
+  }
+}
+
+/* Poster + overlay UI */
+/* Poster thumbnail with tappable overlay */
+/* Poster + overlay UI */
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  overflow: hidden;
+  border-radius: inherit; /* matches .frame-916 corners */
+}
+.video-wrapper > video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* full-cover clickable overlay */
+.play-overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+  border: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+
+/* circle + triangle icon */
+.play-overlay::before {
+  content: "";
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+}
+.play-overlay::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 22px solid var(--violet-900);
+  border-top: 14px solid transparent;
+  border-bottom: 14px solid transparent;
+  transform: translateX(6px);
+}
+
+/* overlay fades out once playing */
+.video-wrapper.playing .play-overlay {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+/* small phones */
+@media (max-width: 520px) {
+  .play-overlay::before {
+    width: 64px;
+    height: 64px;
+  }
+  .play-overlay::after {
+    border-left-width: 18px;
+    border-top-width: 12px;
+    border-bottom-width: 12px;
   }
 }

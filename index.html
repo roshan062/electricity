@@ -45,14 +45,36 @@
       </section>
 
       <!-- SECTION 2 — Full 9:16 video -->
-      <section id="section2" class="page full-viewport">
+      <!-- <section id="section2" class="page full-viewport">
         <figure class="frame-916">
           <video class="media" poster="assets/intro-poster-9x16.jpg" autoplay controls>
             <source src="assets/second_page_vid.mp4" type="video/mp4" />
             <source src="assets/intro-9x16.webm" type="video/webm" />
           </video>
         </figure>
-      </section>
+      </section> -->
+
+<section id="section2" class="page full-viewport">
+  <figure class="frame-916">
+    <div class="video-wrapper" data-poster-play>
+      <video
+        class="media"
+        id="introVideo"
+        playsinline
+        preload="metadata"
+        poster="assets/first_page_img.jpg"><!-- ⚠️ make sure this path exists -->
+        <source src="assets/second_page_vid.mp4" type="video/mp4" />
+        <source src="assets/intro-9x16.webm" type="video/webm" />
+      </video>
+
+      <!-- overlay is optional; JS will add one if it’s missing -->
+      <button type="button" class="play-overlay" aria-label="Play video"></button>
+    </div>
+  </figure>
+</section>
+
+
+
 
       <!-- SECTION 3 — Full 9:16 pattern image from PDF vibe -->
       <section id="section3" class="page full-viewport">
@@ -163,7 +185,7 @@
               <strong>(electrons)</strong> move through metals. For electricity
               to flow, we need a complete <strong>electric circuit</strong> —
               wires, batteries, switches, bulbs.
-              <span class="muted">(from the PDF narrative)</span>
+              <span class="muted">(can update)</span>
             </p>
           </div>
 
@@ -252,7 +274,11 @@
           </div>
 
           <div class="fact-flash">
-            <div class="ff-badge">Fact Flash</div>
+            <img src="assets/Icons_WB/factflash.png" alt="Metals" />
+            <!-- <div class="ff-badge">
+                Fact Flash
+ 
+            </div> -->
             <p>Milk conducts due to water + lactic acids.</p>
           </div>
 
@@ -298,7 +324,7 @@
               <img
                 src="assets/gifs/led.gif"
                 alt="LED GIF"
-                class="rounded media-sm"
+                class="rounded media-sm giff"
               />
             </div>
             <div class="info card soft">
@@ -310,7 +336,7 @@
               <img
                 src="assets/Tester.png"
                 alt="Neon tester section"
-                class="rounded media-sm"
+                class="rounded media-sm giff"
               />
             </div>
             <div class="info card soft">
@@ -319,7 +345,7 @@
               <img
                 src="assets/gifs/compassb.gif"
                 alt="Compass deflection GIF"
-                class="rounded media-sm"
+                class="rounded media-sm giff"
               />
             </div>
           </div>
@@ -470,9 +496,9 @@
       </section>
 
       <!-- Floating audio toggle -->
-      <!-- <button id="audioControl" class="audio-fab" onclick="toggleAudio()"> -->
+      <!-- <button id="audioControl" class="audio-fab" onclick="toggleAudio()">
         🎵
-      </button>
+      </button> -->
     </div>
 
     <script src="script.js" defer></script>
