@@ -170,7 +170,7 @@ body {
 }
 .chapter-number {
   font-size: clamp(20px, 4vw, 32px);
-  margin-left: 10px;
+  /* margin-left: 10px; */
 }
 .title-chip .xl {
   font-size: clamp(28px, 12vw, 72px);
