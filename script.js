@@ -14,10 +14,10 @@ let progressFillEl = null;
 // ---------- Init ----------
 document.addEventListener("DOMContentLoaded", () => {
     // cache elements that might not exist (pager is commented out in HTML)
-    nextBtnEl = document.getElementById("nextBtn");
-    prevBtnEl = document.getElementById("prevBtn");
-    pageInfoEl = document.getElementById("pageInfo");
-    progressFillEl = document.getElementById("progressFill");
+    // nextBtnEl = document.getElementById("nextBtn");
+    // prevBtnEl = document.getElementById("prevBtn");
+    // pageInfoEl = document.getElementById("pageInfo");
+    // progressFillEl = document.getElementById("progressFill");
 
     // wire pager if present
     if (nextBtnEl) {
