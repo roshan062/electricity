@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Chapter 4: Electricity — Next-Gen Ebook</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="ebook-shell">
+      <!-- Sticky chapter header -->
+      <header class="chapter-header">
+        <div class="ch-no">04</div>
+        <div class="ch-meta">
+          <h1 class="ch-title">Electricity</h1>
+          <p class="ch-sub">Magnetic and Heating Effects</p>
+        </div>
+        <div class="ch-progress"><span id="progressFill"></span></div>
+      </header>
+
+      <!-- Pager -->
+      <nav class="pager">
+        <button id="prevBtn" class="btn pill" disabled>← Previous</button>
+        <span id="pageInfo" class="page-info">Page 1 of 9</span>
+        <button id="nextBtn" class="btn pill">Next →</button>
+      </nav>
+
+      <!-- SECTION 1 — Full 9:16 cover image -->
+      <section id="section1" class="page full-viewport visible">
+        <figure class="frame-916">
+          <img
+            src="assets/first_page_img.jpg"
+            alt="Cover (9:16)"
+            class="media"
+          />
+          <figcaption class="overlay-title">
+            <div class="title-chip">
+              <div>Chapter 4</div>
+              <div class="xl">Electricity</div>
+            </div>
+          </figcaption>
+        </figure>
+      </section>
+
+      <!-- SECTION 2 — Full 9:16 video -->
+      <section id="section2" class="page full-viewport">
+        <figure class="frame-916">
+          <video class="media" poster="assets/intro-poster-9x16.jpg" controls>
+            <source src="assets/second_page_vid.mp4" type="video/mp4" />
+            <source src="assets/intro-9x16.webm" type="video/webm" />
+          </video>
+        </figure>
+      </section>
+
+      <!-- SECTION 3 — Full 9:16 pattern image from PDF vibe -->
+      <section id="section3" class="page full-viewport">
+        <figure class="frame-916">
+          <img
+            src="assets/third_page_img.jpg"
+            alt="Pattern (9:16)"
+            class="media"
+          />
+        </figure>
+      </section>
+
+      <!-- SECTION 4 — Sneak Peek + Hear me out + mother/kid image + kid video -->
+      <section id="section4" class="page content with-sidebar">
+        <aside class="side-rail">
+          <div class="rail-text">Electricity</div>
+          <div class="rail-sub">Magnetic and Heating Effects</div>
+          <div class="rail-icon">💡</div>
+        </aside>
+
+        <div class="page-body">
+          <div class="banner sneek">
+            <div class="sneak-illustration">👦</div>
+            <div class="banner-text">
+              <h3 class="banner-title">Sneak&nbsp;Peek</h3>
+              <ul class="bullet">
+                <li>Understand electric current and its flow</li>
+                <li>Discover which liquids conduct electricity</li>
+                <li>How to test conductivity of liquids</li>
+                <li>Heating & chemical effects of current</li>
+                <li>Electrolysis and electroplating</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="hmo-wrap">
+            <button class="chip-audio" onclick="playAudio('intro-narration')">
+              <span class="chip-icon">🎙️</span>
+              <span>Hear me out!</span>
+            </button>
+
+            <div class="hmo-media">
+              <img
+                class="mom-kid"
+                src="assets/mother-kid.png"
+                alt="Mother and kid"
+              />
+              <!-- Transparent kid video (dummy); replace with your alpha WEBM -->
+              <video class="kid-video" autoplay muted loop playsinline>
+                <source src="assets/kid-nobg.webm" type="video/webm" />
+              </video>
+            </div>
+
+            <audio id="intro-narration" preload="metadata">
+              <source src="assets/intro-narration.mp3" type="audio/mpeg" />
+            </audio>
+
+            <div class="card soft">
+              <p class="lead">
+                “You know my parents always warn me:
+                <em
+                  >Don’t touch any electric wire or appliance with wet
+                  hands!</em
+                >
+                In this chapter, let’s find out why — and explore the effects of
+                electric current.”
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 5 — Electricity + Conductors vs Insulators -->
+      <section id="section5" class="page content with-sidebar">
+        <aside class="side-rail">
+          <div class="rail-text">Electricity</div>
+        </aside>
+
+        <div class="page-body">
+          <div class="card">
+            <div class="title-row">
+              <div class="title-badge">⚡ Electricity</div>
+              <div class="rule"></div>
+            </div>
+            <p>
+              Electricity is a special kind of energy created when tiny charges
+              <strong>(electrons)</strong> move through metals. For electricity
+              to flow, we need a complete <strong>electric circuit</strong> —
+              wires, batteries, switches, bulbs.
+              <span class="muted">(from the PDF narrative)</span>
+            </p>
+          </div>
+
+          <div class="twins">
+            <div class="twin card pastel-orange">
+              <h4 class="twin-title">Conductors</h4>
+              <p>Allow current to travel through them.</p>
+              <div class="thumb-row">
+                <img src="assets/metals.png" alt="Metals" />
+                <img src="assets/graphite.png" alt="Graphite" />
+                <img src="assets/salty-water.png" alt="Salt water" />
+              </div>
+              <p class="small muted">
+                Examples: gold, silver, iron, copper; graphite; salt/acid/alkali
+                water.
+              </p>
+            </div>
+
+            <div class="twin card pastel-cream">
+              <h4 class="twin-title">Insulators</h4>
+              <p>Do not allow current to pass (bad conductors).</p>
+              <div class="thumb-row">
+                <img src="assets/rubber.png" alt="Rubber" />
+                <img src="assets/wood.png" alt="Wood" />
+                <img src="assets/glass.png" alt="Glass" />
+              </div>
+              <p class="small muted">
+                Also: pure/distilled water is a poor conductor.
+              </p>
+            </div>
+          </div>
+
+          <div class="action card soft-blue">
+            <div class="action-title">Action Section</div>
+            <ol class="action-steps">
+              <li>Pour 70 ml pure water into a 120 ml beaker; add 7 g salt.</li>
+              <li>Stir and complete the circuit with a dry cell/battery.</li>
+              <li>
+                Check if the bulb glows; add dilute acid/alkali and repeat.
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 6 — Liquids conduct? Tester diagram + fact flash -->
+      <section id="section6" class="page content with-sidebar">
+        <aside class="side-rail"><div class="rail-text">Liquids</div></aside>
+
+        <div class="page-body">
+          <h2 class="section-heading">Do Liquids Conduct Electricity?</h2>
+
+          <div class="card">
+            <p>
+              Many liquids (electrolytes) conduct via ions; distilled water
+              doesn’t; oil/petrol are blockers.
+            </p>
+          </div>
+
+          <div class="fact-flash">
+            <div class="ff-badge">Fact Flash</div>
+            <p>Milk conducts due to water + lactic acids.</p>
+          </div>
+
+          <div class="tester card">
+            <h3 class="tester-title">How to Test Conductivity</h3>
+            <div class="tester-grid">
+              <img
+                src="assets/tester-diagram.png"
+                alt="Tester diagram"
+                class="tester-img"
+              />
+              <div class="tester-notes">
+                <ul class="bullet">
+                  <li>Cell/Battery + Bulb/LED</li>
+                  <li>Connect via the solution</li>
+                  <li>Glow ⇒ good conductor</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 7 — Heating effects + LED / Neon Tester / Magnetic Compass -->
+      <section id="section7" class="page content with-sidebar">
+        <aside class="side-rail">
+          <div class="rail-text">Heating Effects</div>
+        </aside>
+
+        <div class="page-body">
+          <h2 class="section-heading">Heating Effects of Electric Current</h2>
+
+          <div class="cards-3">
+            <div class="info card soft">
+              <h4>LED (Light Emitting Diode)</h4>
+              <p>
+                Detects tiny currents; longer lead (+), shorter (−);
+                energy-efficient lighting.
+              </p>
+              <img
+                src="assets/led-gif.gif"
+                alt="LED GIF"
+                class="rounded media-sm"
+              />
+            </div>
+            <div class="info card soft">
+              <h4>Tester</h4>
+              <p>
+                Neon tester glows on live wire contact; indicates presence of
+                electricity.
+              </p>
+              <img
+                src="assets/neon-tester.png"
+                alt="Neon tester section"
+                class="rounded media-sm"
+              />
+            </div>
+            <div class="info card soft">
+              <h4>Magnetic Compass Detector</h4>
+              <p>Compass deflects near a current-carrying conductor.</p>
+              <img
+                src="assets/compass.gif"
+                alt="Compass deflection GIF"
+                class="rounded media-sm"
+              />
+            </div>
+          </div>
+
+          <div class="callout soft-pink">
+            <h4>Why are LEDs replacing filament bulbs?</h4>
+            <p>
+              LEDs convert ~95% to light vs ~10% for filament; less heat, more
+              efficiency.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 8 — Chemical effects -->
+      <section id="section8" class="page content with-sidebar">
+        <aside class="side-rail">
+          <div class="rail-text">Chemical Effects</div>
+        </aside>
+
+        <div class="page-body">
+          <h2 class="section-heading">Chemical Effects of Electric Current</h2>
+
+          <div class="card">
+            <p>
+              Current through an electrolyte can drive chemical changes (e.g.,
+              electrolysis of acidified water → H<sub>2</sub> + O<sub>2</sub>).
+            </p>
+          </div>
+
+          <div class="apps-grid3">
+            <div class="app card">
+              <div class="emoji">🏭</div>
+              <h4>Metal Extraction</h4>
+              <p>Extraction & purification from ores.</p>
+            </div>
+            <div class="app card">
+              <div class="emoji">💨</div>
+              <h4>Gas Production</h4>
+              <p>Hydrogen & oxygen generation.</p>
+            </div>
+            <div class="app card">
+              <div class="emoji">🔬</div>
+              <h4>Electrolysis</h4>
+              <p>Decomposition via electric current.</p>
+            </div>
+          </div>
+
+          <div class="fact-flash soft">
+            <p>
+              William Nicholson first reported water dissociation under current.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 9 — Practice Vault -->
+      <section id="section9" class="page content with-sidebar">
+        <aside class="side-rail">
+          <div class="rail-text">Practice Vault</div>
+        </aside>
+
+        <div class="page-body">
+          <h2 class="section-heading">🎯 Practice Vault</h2>
+
+          <div class="quiz">
+            <!-- Q1 -->
+            <div class="q card">
+              <div class="q-text">
+                The device which can detect very small current is
+              </div>
+              <ul class="quiz-options">
+                <li onclick="selectAnswer(this,false)">MCB</li>
+                <li onclick="selectAnswer(this,true)">LED</li>
+                <li onclick="selectAnswer(this,false)">dB</li>
+                <li onclick="selectAnswer(this,false)">None</li>
+              </ul>
+              <div class="quiz-feedback"></div>
+            </div>
+            <!-- Q2 -->
+            <div class="q card">
+              <div class="q-text">
+                Current through acidified water causing H₂ & O₂ is a ______
+                effect.
+              </div>
+              <ul class="quiz-options">
+                <li onclick="selectAnswer(this,false)">Heating</li>
+                <li onclick="selectAnswer(this,true)">Chemical</li>
+                <li onclick="selectAnswer(this,false)">Magnetic</li>
+                <li onclick="selectAnswer(this,false)">Physical</li>
+              </ul>
+              <div class="quiz-feedback"></div>
+            </div>
+            <!-- Q3 -->
+            <div class="q card">
+              <div class="q-text">Which one is not an electrolyte?</div>
+              <ul class="quiz-options">
+                <li onclick="selectAnswer(this,false)">Lemon juice</li>
+                <li onclick="selectAnswer(this,true)">Oil</li>
+                <li onclick="selectAnswer(this,false)">
+                  Copper sulphate solution
+                </li>
+                <li onclick="selectAnswer(this,false)">Salt solution</li>
+              </ul>
+              <div class="quiz-feedback"></div>
+            </div>
+            <!-- Q4 -->
+            <div class="q card">
+              <div class="q-text">Electrolytes conduct due to movement of</div>
+              <ul class="quiz-options">
+                <li onclick="selectAnswer(this,false)">Atoms</li>
+                <li onclick="selectAnswer(this,true)">Ions</li>
+                <li onclick="selectAnswer(this,false)">Electrons only</li>
+                <li onclick="selectAnswer(this,false)">Electrodes</li>
+              </ul>
+              <div class="quiz-feedback"></div>
+            </div>
+            <!-- Q5 -->
+            <div class="q card">
+              <div class="q-text">To flow current over a wire, we need a</div>
+              <ul class="quiz-options">
+                <li onclick="selectAnswer(this,false)">Open circuit</li>
+                <li onclick="selectAnswer(this,true)">Closed circuit</li>
+                <li onclick="selectAnswer(this,false)">Short circuit</li>
+                <li onclick="selectAnswer(this,false)">Parallel circuit</li>
+              </ul>
+              <div class="quiz-feedback"></div>
+            </div>
+
+            <div class="center mt-24">
+              <button class="btn success" onclick="showResults()">
+                📊 Show Results
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Floating audio toggle -->
+      <button id="audioControl" class="audio-fab" onclick="toggleAudio()">
+        🎵
+      </button>
+    </div>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
