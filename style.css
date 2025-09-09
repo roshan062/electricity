@@ -632,3 +632,113 @@ body {
     text-align: left; /* keeps paragraphs left-aligned */
   }
 }
+
+/* --- Kill horizontal overflow globally --- */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+.ebook-shell {
+  overflow-x: clip;
+}
+
+/* --- Full-bleed pages: robust mobile centering (no transform) --- */
+:root {
+  --chrome-h: 132px;
+} /* header + pager height */
+
+.page.full-viewport {
+  /* center across the true small viewport width */
+  width: 100svw;
+  margin-inline: calc(50% - 50svw);
+  background: #000;
+  min-height: calc(100dvh - var(--chrome-h));
+  display: grid;
+  place-items: center;
+}
+
+/* Fallback for older browsers without svw/dvh */
+@supports not (width: 100svw) {
+  .page.full-viewport {
+    width: 100vw;
+    margin-inline: calc(50% - 50vw);
+    min-height: calc(100vh - var(--chrome-h));
+  }
+}
+
+/* 9:16 frame sizing without side bars */
+.page.full-viewport .frame-916 {
+  /* border-radius: 18px; */
+  overflow: hidden;
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
+  max-width: none;
+}
+.page.full-viewport .frame-916 .media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* If screen is wider than 9:16, clamp by height */
+@media (min-aspect-ratio: 9/16) {
+  .page.full-viewport .frame-916 {
+    height: calc(100dvh - var(--chrome-h));
+    width: calc((100dvh - var(--chrome-h)) * 9 / 16);
+  }
+}
+
+/* If screen is taller/narrower, clamp by width */
+@media (max-aspect-ratio: 9/16) {
+  .page.full-viewport .frame-916 {
+    width: 100svw;
+    height: calc(100svw * 16 / 9);
+  }
+  @supports not (width: 100svw) {
+    .page.full-viewport .frame-916 {
+      width: 100vw;
+      height: calc(100vw * 16 / 9);
+    }
+  }
+}
+
+/* FULL-BLEED (crops a little, no bars) */
+:root {
+  --chrome-h: 132px;
+} /* header + pager height */
+
+.page.full-viewport {
+  width: 100svw;
+  margin-inline: calc(50% - 50svw);
+  background: transparent;
+  min-height: calc(100dvh - var(--chrome-h));
+  display: grid;
+  place-items: center;
+}
+
+/* force the frame to fill the available box */
+.page.full-viewport .frame-916 {
+  width: 100svw;
+  height: calc(100dvh - var(--chrome-h));
+  /* border-radius: 18px; */
+  overflow: hidden;
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
+  max-width: none;
+}
+
+/* make media fully cover the frame */
+.page.full-viewport .frame-916 .media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* crops a bit to avoid any bars */
+}
+
+/* guard against stray horizontal scroll */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+.ebook-shell {
+  overflow-x: clip;
+}
